@@ -1,0 +1,15 @@
+.pnpm-store
+.DS_Store
+.vite-ssg-dist
+.vite-ssg-temp
+*.local
+.env
+dist
+dist-ssr
+node_modules
+.idea/
+*.log
+/src/auto-imports.d.ts
+/src/components.d.ts
+.vscode
+.eslintcache
