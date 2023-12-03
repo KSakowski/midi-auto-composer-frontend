@@ -1,4 +1,4 @@
-# vue-tanstack-query-example
+# midi-auto-composer-frontend
 
 This template should help get you started developing with Vue 3 in Vite.
 
@@ -50,11 +50,11 @@ npm run lint
 First, build the vitesse image by opening the terminal in the project's root directory.
 
 ```bash
-docker buildx build . -t audiotrainer:latest
+docker buildx build . -t audio-trainer-front:latest
 ```
 
 Run the image and specify port mapping with the `-p` flag.
 
 ```bash
-docker run --rm -it -p 3333:80 audiotrainer:latest
+docker run --rm -it -p 3333:80 audio-trainer-front:latest
 ```
