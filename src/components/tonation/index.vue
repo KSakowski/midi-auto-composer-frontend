@@ -19,16 +19,16 @@
         v-for="(item, index) in Tonations"
         :key="index"
         size="small"
-        class="flex justify-content-center w-1 mx-1 mb-2 p-0 uppercase"
-        :severity="modelValue === item ? 'primary' : 'success'"
+        class="flex justify-content-center w-1 mx-1 mb-2 p-0 uppercase text-xs"
+        :severity="modelValue === item ? 'success' : 'primary'"
         @click="$emit('update:modelValue', item)"
       >
         {{ item }}
       </Button>
     </div>
     <Button
-      class="flex justify-content-center mt-3 mx-1 py-0 px-2 uppercase"
-      :severity="modelValue === 'random' ? 'primary' : 'success'"
+      class="flex justify-content-center mt-3 mx-1 py-0 px-2 uppercase text-xs"
+      :severity="modelValue === 'random' ? 'success' : 'primary'"
       @click="$emit('update:modelValue', 'random')"
     >
       Random

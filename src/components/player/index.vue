@@ -1,9 +1,14 @@
 <script setup lang="ts">
   import { useEventListener } from '@vueuse/core';
+  import ProgressSpinner from 'primevue/progressspinner';
   import { computed, ref, watch } from 'vue';
 
-  const props = defineProps<{
+  import Play from "@/components/player/play.vue";
+  import Stop from "@/components/player/stop.vue";
+
+const props = defineProps<{
     file?: ArrayBuffer;
+    toReload: boolean;
     isLoading: boolean;
   }>();
 
@@ -45,11 +50,12 @@
   });
 </script>
 <template>
-  <div class="text-primary text-center">
-    <span v-if="!file" class="material-symbols-outlined text-8xl cursor-pointer" @click="loadFile">play_circle</span>
+  <div v-if="!isLoading" class="text-primary text-center">
+    <Play v-if="!file || toReload" @click="loadFile" />
     <template v-else>
-      <span v-if="!isPlaying" class="material-symbols-outlined text-8xl cursor-pointer" @click="play">play_circle</span>
-      <span v-else class="material-symbols-outlined text-8xl cursor-pointer" @click="stop">stop_circle</span>
+      <Play v-if="!isPlaying" @click="play" />
+      <Stop v-else @click="stop" />
     </template>
   </div>
+  <ProgressSpinner v-else strokeWidth="4" />
 </template>

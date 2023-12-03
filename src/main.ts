@@ -8,7 +8,7 @@ import { vueQueryPluginOptions } from '@/plugins/vueQuery';
 
 import App from './App.vue';
 
-import './assets/main.css';
+import './assets/main.scss';
 
 const app = createApp(App);
 
