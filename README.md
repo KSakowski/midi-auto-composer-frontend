@@ -44,3 +44,17 @@ npm run build
 ```sh
 npm run lint
 ```
+
+## Docker Production Build
+
+First, build the vitesse image by opening the terminal in the project's root directory.
+
+```bash
+docker buildx build . -t audiotrainer:latest
+```
+
+Run the image and specify port mapping with the `-p` flag.
+
+```bash
+docker run --rm -it -p 3333:80 audiotrainer:latest
+```
