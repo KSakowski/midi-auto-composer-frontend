@@ -17,6 +17,11 @@
       icon: 'pi pi-link',
       route: '/',
     },
+    {
+      label: 'Custom creator',
+      icon: 'pi pi-link',
+      route: '/',
+    },
   ]);
 </script>
 
