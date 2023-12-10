@@ -18,7 +18,7 @@
     tempo: 70,
     scale: 'mixolydian',
     scale_tonation: 'a',
-    pattern: [1, 2, 3],
+    pattern: [1, 2, 3, 4],
     play_upwards: true,
     preview_pattern: true,
     pause_between: true,
