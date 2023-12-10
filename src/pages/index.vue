@@ -15,7 +15,7 @@
   const player = ref();
   const toReload = ref(false);
   const form = reactive<PatternMode>({
-    tempo: 70,
+    tempo: 90,
     scale: 'mixolydian',
     scale_tonation: 'a',
     pattern: [1, 2, 3, 4],
