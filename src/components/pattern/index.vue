@@ -47,16 +47,15 @@
 
 <template>
   <div class="pattern">
-    {{ pattern }}
     <div ref="el" class="flex flex-wrap mb-4">
       <Button
-        v-for="item in patternOptions"
-        :key="item.key"
+        v-for="(item, index) in pattern"
+        :key="item"
         size="small"
         class="py-0 px-2 mx-1 my-1 text-xs relative overflow-visible"
       >
-        {{ item.value }}
-        <span class="remove-btn flex align-items-center justify-content-center bg-red-300" @click="deletePattern(item)">
+        {{ item }}
+        <span class="remove-btn flex align-items-center justify-content-center bg-red-300" @click="deletePattern(index)">
           x
         </span>
       </Button>
