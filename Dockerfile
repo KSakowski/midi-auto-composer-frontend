@@ -1,7 +1,7 @@
 FROM node:latest as build-stage
 
 # TODO
-ENV VITE_APP_API_URL https://midi-auto-composer-backend-bsnougc45q-lz.a.run.app//v1/
+ENV VITE_APP_API_URL https://midi-auto-composer-backend-bsnougc45q-lz.a.run.app/v1/
 
 WORKDIR /app
 
