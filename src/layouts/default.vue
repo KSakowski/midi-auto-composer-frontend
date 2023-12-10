@@ -8,7 +8,7 @@
 <template>
   <Card class="container">
     <template #content>
-      <header class="mb-4">
+      <header class="mb-4 text-center">
         <Logo />
       </header>
       <div class="grid grid-nogutter">
@@ -21,6 +21,7 @@
         </main>
 
         <nav class="col-12 md:col-3">
+          <h3>Mode</h3>
           <Navigation />
         </nav>
       </div>

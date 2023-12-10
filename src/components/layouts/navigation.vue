@@ -4,34 +4,35 @@
   const items = ref([
     {
       label: 'Pattern',
-      icon: 'pi pi-link',
+      icon: 'pin',
       route: '/',
     },
     {
       label: 'Random scales one chord',
-      icon: 'pi pi-link',
-      route: '/',
+      icon: 'share',
+      route: '/random-scales-one-chord',
     },
     {
-      label: 'One scales one chord',
-      icon: 'pi pi-link',
-      route: '/',
+      label: 'One scale one chord',
+      icon: 'recycling',
+      route: '/one-scale-one-chord',
     },
     {
       label: 'Custom creator',
-      icon: 'pi pi-link',
-      route: '/',
+      icon: 'diversity_2',
+      route: '/custom-creator',
     },
   ]);
 </script>
 
 <template>
   <ul class="m-0 p-0 list-none">
-    <li v-for="(item, index) in items" :key="index" class="mb-2">
-      <router-link v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>
-        <a class="text-xl text-white no-underline" :href="href" @click="navigate">
+    <li v-for="(item, index) in items" :key="index" class="mb-2 pl-0">
+      <router-link v-if="item.route" v-slot="{ href, navigate, isActive }" :to="item.route" custom>
+        <a :class="isActive ? 'text-yellow-100' : 'text-white'" class="flex align-items-center no-underline"  :href="href" @click="navigate">
           <span :class="item.icon" />
-          <span class="ml-2">{{ item.label }}</span>
+          <span class="material-symbols-outlined">{{ item.icon }}</span>
+          <span class="pl-2">{{ item.label }}</span>
         </a>
       </router-link>
     </li>
