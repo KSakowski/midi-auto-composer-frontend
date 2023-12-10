@@ -28,6 +28,7 @@ const props = defineProps<{
   });
 
   function play() {
+    currentSound.value?.load();
     currentSound.value?.play();
     isPlaying.value = true;
   }
