@@ -10,7 +10,7 @@
   import Tempo from '@/components/tempo/index.vue';
   import Tonation from '@/components/tonation/index.vue';
   import PlayModesService from '@/services/playModes';
-  import type { PatternMode } from '@/types/pattern';
+  import type { PatternMode } from '@/types/modes';
 
   const player = ref();
   const toReload = ref(false);
