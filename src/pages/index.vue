@@ -16,7 +16,7 @@
   const toReload = ref(false);
   const form = reactive<PatternMode>({
     tempo: 90,
-    scale: 'mixolydian',
+    scale_name: 'mixolydian',
     scale_tonation: 'a',
     pattern: [1, 2, 3, 4],
     play_upwards: true,
@@ -53,7 +53,7 @@
         <Tempo v-model="form.tempo" />
 
         <h3 class="mb-0">Scales</h3>
-        <AllScales v-model="form.scale" />
+        <AllScales v-model="form.scale_name" />
 
         <h3 class="mb-0">Pattern</h3>
         <Pattern v-model="form.pattern" />

@@ -1,6 +1,6 @@
 export interface PatternMode {
   tempo: number;
-  scale: string;
+  scale_name: string;
   scale_tonation: string;
   pattern: number[];
   play_upwards: boolean;
