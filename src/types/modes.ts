@@ -13,7 +13,7 @@ export type Difficulty = "easy" | "normal" | "hard";
 
 export interface RandomScalesOneChord {
   tempo: number;
-  scale: string[];
+  scales: string[];
   chord_name: string;
   tonation: string;
   quarternotes: number;
@@ -21,5 +21,13 @@ export interface RandomScalesOneChord {
   difficulty: Difficulty;
   bassline: boolean;
   percussion: boolean;
+  random_sequence: boolean;
+  notes_range: number[];
+}
+
+export interface IntervalsMode {
+  tempo: number;
+  intervals: string[];
+  difficulty: Difficulty;
   notes_range: number[];
 }

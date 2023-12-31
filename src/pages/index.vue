@@ -10,12 +10,14 @@
   import Tempo from '@/components/tempo/index.vue';
   import Tonation from '@/components/tonation/index.vue';
   import PlayModesService from '@/services/playModes';
+  import { Settings } from '@/settings';
   import type { PatternMode } from '@/types/modes';
 
+  const limits = Settings.page.pattern;
   const player = ref();
   const toReload = ref(false);
   const form = reactive<PatternMode>({
-    tempo: 90,
+    tempo: limits.tempo.defaultValue,
     scale_name: 'mixolydian',
     scale_tonation: 'a',
     pattern: [1, 2, 3, 4],
@@ -50,23 +52,23 @@
         <Tonation v-model="form.scale_tonation" />
 
         <h3 class="mb-0">Tempo</h3>
-        <Tempo v-model="form.tempo" />
+        <Tempo v-model="form.tempo" :min="limits.tempo.min" :max="limits.tempo.max" />
 
         <h3 class="mb-0">Scales</h3>
         <AllScales v-model="form.scale_name" />
 
         <h3 class="mb-0">Pattern</h3>
-        <Pattern v-model="form.pattern" />
+        <Pattern v-model="form.pattern" :max-length="limits.pattern.maxLength" />
 
-        <div class="mt-6 mb-2">
+        <div class="flex align-items-center mt-6 mb-2">
           <Checkbox v-model="form.play_upwards" inputId="play_upwards" :binary="true" />
           <label for="play_upwards" class="ml-2">Play upwards</label>
         </div>
-        <div class="mb-2">
+        <div class="flex align-items-center mb-2">
           <Checkbox v-model="form.preview_pattern" inputId="preview_pattern" :binary="true" />
           <label for="preview_pattern" class="ml-2">Peview pattern</label>
         </div>
-        <div class="mb-2">
+        <div class="flex align-items-center mb-2">
           <Checkbox v-model="form.pause_between" inputId="pause_between" :binary="true" />
           <label for="pause_between" class="ml-2">Pause between</label>
         </div>

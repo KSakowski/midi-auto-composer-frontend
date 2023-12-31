@@ -8,14 +8,14 @@
       route: '/',
     },
     {
-      label: 'Random scales one chord',
+      label: 'Scales one chord',
       icon: 'share',
-      route: '/random-scales-one-chord',
+      route: '/scales-one-chord',
     },
     {
-      label: 'One scale one chord',
-      icon: 'recycling',
-      route: '/one-scale-one-chord',
+      label: 'Intervals',
+      icon: 'diversity_2',
+      route: '/intervals',
     },
     {
       label: 'Custom creator',
