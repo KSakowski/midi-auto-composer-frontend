@@ -21,7 +21,7 @@
   const form = reactive<RandomScalesOneChord>({
     tonation: 'a',
     tempo: limits.tempo.defaultValue,
-    scales: ['mixolydian'],
+    scales_names: ['mixolydian'],
     chord_name: 'major',
     quarternotes: limits.quartones.defaultValue,
     move_scale_max: limits.moveScaleMax.defaultValue,
@@ -60,7 +60,7 @@
         <Tempo v-model="form.tempo" :min="limits.tempo.min" :max="limits.tempo.max" />
 
         <h3 class="mb-0">Scales</h3>
-        <Scales v-model="form.scales" />
+        <Scales v-model="form.scales_names" />
 
         <h3 class="mb-0">Chord name</h3>
         <Chord v-model="form.chord_name" />

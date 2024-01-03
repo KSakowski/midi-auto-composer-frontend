@@ -2,11 +2,12 @@
   import { useEventListener } from '@vueuse/core';
   import ProgressSpinner from 'primevue/progressspinner';
   import { computed, ref, watch } from 'vue';
+  import { onBeforeRouteLeave } from 'vue-router';
 
-  import Play from "@/components/player/play.vue";
-  import Stop from "@/components/player/stop.vue";
+  import Play from '@/components/player/play.vue';
+  import Stop from '@/components/player/stop.vue';
 
-const props = defineProps<{
+  const props = defineProps<{
     file?: ArrayBuffer;
     toReload: boolean;
     isLoading: boolean;
@@ -49,6 +50,8 @@ const props = defineProps<{
     play();
     useEventListener(currentSound.value, 'ended', () => (isPlaying.value = false));
   });
+
+  onBeforeRouteLeave(() => stop());
 </script>
 <template>
   <div v-if="!isLoading" class="text-primary text-center">

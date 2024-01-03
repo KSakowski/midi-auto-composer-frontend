@@ -19,7 +19,7 @@
   const form = reactive<PatternMode>({
     tempo: limits.tempo.defaultValue,
     scale_name: 'mixolydian',
-    scale_tonation: 'a',
+    tonation: 'a',
     pattern: [1, 2, 3, 4],
     play_upwards: true,
     preview_pattern: true,
@@ -49,7 +49,7 @@
     <div class="col-12 md:col-4">
       <ScrollPanel class="pr-3" style="width: 100%; height: calc(100vh - 180px)">
         <h3 class="mb-0">Tonation</h3>
-        <Tonation v-model="form.scale_tonation" />
+        <Tonation v-model="form.tonation" />
 
         <h3 class="mb-0">Tempo</h3>
         <Tempo v-model="form.tempo" :min="limits.tempo.min" :max="limits.tempo.max" />

@@ -1,7 +1,7 @@
 export interface PatternMode {
   tempo: number;
   scale_name: string;
-  scale_tonation: string;
+  tonation: string;
   pattern: number[];
   play_upwards: boolean;
   preview_pattern: boolean;
@@ -13,7 +13,7 @@ export type Difficulty = "easy" | "normal" | "hard";
 
 export interface RandomScalesOneChord {
   tempo: number;
-  scales: string[];
+  scales_names: string[];
   chord_name: string;
   tonation: string;
   quarternotes: number;
