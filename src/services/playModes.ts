@@ -1,5 +1,5 @@
 import { apiClient } from '@/plugins/axios';
-import type { IntervalsMode, PatternMode, RandomScalesOneChord } from '@/types/modes';
+import type { CustomCreator, IntervalsMode, PatternMode, RandomScalesOneChord } from '@/types/modes';
 
 export default class PlayModesService {
   static async pattern(form: PatternMode): Promise<ArrayBuffer> {
@@ -38,6 +38,22 @@ export default class PlayModesService {
     return (
       await apiClient.post<ArrayBuffer>(
         'intervals',
+        { ...form },
+        {
+          headers: {
+            accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          responseType: 'arraybuffer',
+        },
+      )
+    ).data;
+  }
+
+  static async customCreator(form: CustomCreator): Promise<ArrayBuffer> {
+    return (
+      await apiClient.post<ArrayBuffer>(
+        'custom_creator',
         { ...form },
         {
           headers: {

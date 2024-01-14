@@ -31,3 +31,19 @@ export interface IntervalsMode {
   difficulty: Difficulty;
   notes_range: number[];
 }
+
+export interface ComponentForm {
+  order?: string;
+  tonation: string;
+  quarternotes: number;
+  scale_name: string;
+  chord_name: string;
+}
+
+export interface CustomCreatorParams {
+  tempo: number;
+}
+
+export interface CustomCreator extends CustomCreatorParams {
+  components: ComponentForm[];
+}

@@ -34,6 +34,20 @@ export const Settings = {
         defaultValue: 40,
       },
     },
-    customCreator: null,
+    customCreator: {
+      tempo: {
+        min: 20,
+        max: 80,
+        defaultValue: 40,
+      },
+      quarternotes: {
+        min: 1,
+        max: 4,
+        defaultValue: 1,
+      },
+      components: {
+        maxLength: 16
+      }
+    },
   },
 };
