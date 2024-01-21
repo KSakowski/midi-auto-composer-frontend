@@ -1,5 +1,8 @@
 FROM node:latest as build-stage
 
+# TODO
+ENV VITE_APP_API_URL https://backend-xpezbyfyxq-ew.a.run.app
+
 WORKDIR /app
 
 COPY package.json package-lock.json ./
