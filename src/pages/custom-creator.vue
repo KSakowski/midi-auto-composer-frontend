@@ -1,5 +1,6 @@
 <script setup lang="ts">
   import { useQuery } from '@tanstack/vue-query';
+  import { useSortable } from '@vueuse/integrations/useSortable';
   import Button from 'primevue/button';
   import Dialog from 'primevue/dialog';
   import ScrollPanel from 'primevue/scrollpanel';
@@ -25,6 +26,7 @@
     scale_name: 'ionian',
     chord_name: 'major',
   };
+  const componentsEl = ref<HTMLElement | null>(null);
   const components = ref<ComponentForm[]>([{ order: crypto.randomUUID(), ...defaultComponentValue }]);
 
   const paramsForm = reactive<CustomCreatorParams>({
@@ -64,10 +66,13 @@
     components.value = components.value.filter((component, componentIndex) => componentIndex !== index);
   }
 
-  watch([paramsForm, components.value], () => {
+  watch(() => [paramsForm, components.value], () => {
     player.value?.stop();
     toReload.value = true;
   });
+
+  const { option } = useSortable(componentsEl, components);
+  option('animation', 200)
 </script>
 
 <template>
@@ -88,9 +93,13 @@
         @loadFile="loadFile"
       />
 
-      <div class="grid w-full px-4 mb-2">
-        <div class="md:col-6 lg:col-3 relative" v-for="(component, index) in components" :key="index">
-          <div class="bg-gray-800 border-round p-2 text-center">
+      <div ref="componentsEl" class="grid w-full px-4 mb-2">
+        <div
+          class="md:col-6 lg:col-3 relative cursor-pointer"
+          v-for="(component, index) in components"
+          :key="component.order"
+        >
+          <div class="bg-gray-800 hover:bg-gray-700 border-round p-2 text-center">
             <p class="m-0">{{ component.tonation }}</p>
             <p class="m-0">{{ component.quarternotes }} / 4</p>
             <p class="m-0">{{ component.scale_name }}</p>
@@ -104,21 +113,12 @@
             >
               <span class="material-symbols-outlined">delete</span>
             </Button>
-
-            <Button
-              v-if="index + 1 === components.length && limits.components.maxLength > index + 1"
-              class="absolute top-50 right-0 p-0 -mt-3"
-              size="small"
-              @click="isDialogVisible = true"
-            >
-              <span class="material-symbols-outlined">add</span>
-            </Button>
           </div>
         </div>
-        <Button v-if="!components.length" class="p-0" size="small" @click="isDialogVisible = true">
-          <span class="material-symbols-outlined">add</span>
-        </Button>
       </div>
+      <Button class="p-0" size="small" @click="isDialogVisible = true">
+        <span class="material-symbols-outlined">add</span>
+      </Button>
     </div>
 
     <Dialog
