@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import { ref } from 'vue';
 
-  import patternIcon from "@/assets/pattern.svg";
+  import patternIcon from "@/assets/custom_creator.svg";
 
   const items = ref([
     {
@@ -49,8 +49,8 @@
 <style lang="scss" scoped>
 .at-nav {
   &__icon {
-    width: 32px;
-    height: 32px;
+    max-width: 16px;
+    max-height: 16px;
     fill: #fff;
   }
 }
