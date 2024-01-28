@@ -3,35 +3,35 @@ export const Settings = {
     pattern: {
       tempo: {
         min: 80,
-        max: 150,
-        defaultValue: 90,
+        max: 180,
+        defaultValue: 100,
       },
       pattern: {
-        maxLength: 7,
+        maxLength: 5,
       },
     },
-    sacalesOneChord: {
+    scalesOneChord: {
       tempo: {
         min: 20,
         max: 80,
-        defaultValue: 60,
+        defaultValue: 50,
       },
       moveScaleMax: {
         min: 1,
-        max: 5,
-        defaultValue: 1,
+        max: 3,
+        defaultValue: 2,
       },
       quartones: {
         min: 1,
         max: 7,
-        defaultValue: 1,
+        defaultValue: 4,
       },
     },
     intervals: {
       tempo: {
         min: 20,
-        max: 80,
-        defaultValue: 40,
+        max: 60,
+        defaultValue: 30,
       },
     },
     customCreator: {
@@ -43,7 +43,7 @@ export const Settings = {
       quarternotes: {
         min: 1,
         max: 4,
-        defaultValue: 1,
+        defaultValue: 4,
       },
       components: {
         maxLength: 16

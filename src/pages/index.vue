@@ -18,9 +18,9 @@
   const toReload = ref(false);
   const form = reactive<PatternMode>({
     tempo: limits.tempo.defaultValue,
-    scale_name: 'mixolydian',
-    tonation: 'a',
-    pattern: [1, 2, 3, 4],
+    scale_name: 'ionian',
+    tonation: 'c',
+    pattern: [1, 2, 3],
     play_upwards: true,
     preview_pattern: true,
     pause_between: true,

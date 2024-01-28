@@ -21,7 +21,7 @@
   const toReload = ref(false);
 
   const defaultComponentValue: ComponentForm = {
-    tonation: 'a',
+    tonation: 'c',
     quarternotes: limits.quarternotes.defaultValue,
     scale_name: 'ionian',
     chord_name: 'major',

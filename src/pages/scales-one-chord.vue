@@ -14,14 +14,14 @@
   import { Settings } from '@/settings';
   import type { RandomScalesOneChord } from '@/types/modes';
 
-  const limits = Settings.page.sacalesOneChord;
+  const limits = Settings.page.scalesOneChord;
   const player = ref();
   const toReload = ref(false);
   const difficultyOptions = ['easy', 'normal', 'hard'];
   const form = reactive<RandomScalesOneChord>({
-    tonation: 'a',
+    tonation: 'c',
     tempo: limits.tempo.defaultValue,
-    scales_names: ['mixolydian'],
+    scales_names: ['ionian'],
     chord_name: 'major',
     quarternotes: limits.quartones.defaultValue,
     move_scale_max: limits.moveScaleMax.defaultValue,
