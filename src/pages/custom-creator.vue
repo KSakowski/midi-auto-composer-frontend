@@ -126,23 +126,23 @@
       modal
       header="Component"
       :style="{ width: '40rem' }"
-      :breakpoints="{ '1199px': '75vw', '575px': '90vw' }"
+      :breakpoints="{ '1199px': '75vw', '575px': '50vw' }"
     >
-      <h3 class="mb-0">Tonation</h3>
-      <Tonation class="mb-2" v-model="componentForm.component.tonation" />
+      <h3 class="my-0">Tonation</h3>
+      <Tonation v-model="componentForm.component.tonation" :show-random="false" />
       <h3 class="mb-0">Quarternotes</h3>
       <Tempo
-        class="mb-5"
+        class="mb-4"
         v-model="componentForm.component.quarternotes"
         :min="limits.quarternotes.min"
         :max="limits.quarternotes.max"
       />
       <h3 class="mb-0">Scale</h3>
-      <AllScales class="mb-2" v-model="componentForm.component.scale_name" />
+      <AllScales class="mb-1" v-model="componentForm.component.scale_name" />
       <h3 class="mb-0">Chord</h3>
-      <Chord class="mb-2" v-model="componentForm.component.chord_name" />
+      <Chord class="mb-1" v-model="componentForm.component.chord_name" />
 
-      <Button class="mt-4" size="small" @click="addNewComponent">Add</Button>
+      <Button class="mt-2" size="small" @click="addNewComponent">Add</Button>
     </Dialog>
   </div>
 </template>

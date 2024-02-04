@@ -14,7 +14,7 @@
   const player = ref();
   const toReload = ref(false);
   const form = reactive<MelodyMode>({
-    tempo: limits.tempo.defaultValue,
+    tempo: 60,
     tonation: 'c',
     melody_id: '0',
     notes_range: [40, 81],
@@ -45,7 +45,7 @@
         <Tonation v-model="form.tonation" />
 
         <h3 class="mb-0">Tempo</h3>
-        <Tempo v-model="form.tempo" :min="limits.tempo.min" :max="limits.tempo.max" />
+        <Tempo v-model="form.tempo" :min="20" :max="80" />
       </ScrollPanel>
     </div>
     <div class="col-23 md:col-8 flex flex-column align-items-center justify-content-center">

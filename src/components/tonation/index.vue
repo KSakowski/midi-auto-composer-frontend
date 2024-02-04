@@ -4,9 +4,15 @@
 
   import { Tonations, TonationSettings } from './tonations';
 
-  const props = defineProps<{
-    modelValue: string;
-  }>();
+  const props = withDefaults(
+      defineProps<{
+        modelValue: string;
+        showRandom?: boolean;
+      }>(),
+      {
+        showRandom: true
+      },
+  );
   const emit = defineEmits(['update:modelValue']);
 
   useVModel(props, 'modelValue', emit);
@@ -31,6 +37,7 @@
       </li>
     </ul>
     <Button
+      v-if="showRandom"
       class="flex justify-content-center mt-3 mx-1 py-0 px-2 uppercase text-xs"
       :severity="modelValue === 'random' ? 'success' : 'primary'"
       @click="$emit('update:modelValue', 'random')"
@@ -46,6 +53,7 @@
   .keyboard {
     width: 280px;
     height: 120px;
+    display: flex;
     padding: 0 0 0 1rem;
     position: relative;
 

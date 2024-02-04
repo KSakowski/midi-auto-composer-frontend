@@ -3,6 +3,7 @@
   import { useRoute } from 'vue-router';
 
   import customCreatorIcon from '@/assets/custom_creator.svg';
+  import intervalsIcon from '@/assets/intervals.svg';
   import oneScalesIcon from '@/assets/one_scales.svg';
   import patternIcon from '@/assets/pattern.svg';
 
@@ -24,13 +25,13 @@
     },
     {
       label: 'Intervals',
-      icon: patternIcon,
+      icon: intervalsIcon,
       route: '/intervals',
       description: 'lorem ipsum dolor sit amet Intervals',
     },
     {
       label: 'Melody',
-      icon: patternIcon,
+      icon: intervalsIcon,
       route: '/melody',
       description: 'lorem ipsum dolor sit amet Intervals',
     },
@@ -47,7 +48,7 @@
 
 <template>
   <nav>
-    <ul class="at-nav m-0 p-0 list-none">
+    <ul class="at-nav m-0 mb-5 p-0 list-none">
       <li v-for="(item, index) in items" :key="index" class="mb-2 pl-0">
         <router-link v-if="item.route" v-slot="{ href, navigate, isActive }" :to="item.route" custom>
           <a
@@ -63,7 +64,7 @@
         </router-link>
       </li>
     </ul>
-    <p class="text">{{ currentRoute?.description }}</p>
+    <p class="text border-1 border-round p-3 text-justify">{{ currentRoute?.description }}</p>
   </nav>
 </template>
 
