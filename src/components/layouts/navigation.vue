@@ -1,57 +1,70 @@
 <script setup lang="ts">
-  import { ref } from 'vue';
+  import { computed, ref } from 'vue';
+  import { useRoute } from 'vue-router';
 
-  import patternIcon from "@/assets/custom_creator.svg";
+  import customCreatorIcon from '@/assets/custom_creator.svg';
+  import oneScalesIcon from '@/assets/one_scales.svg';
+  import patternIcon from '@/assets/pattern.svg';
+
+  const route = useRoute();
 
   const items = ref([
     {
       label: 'Pattern',
       icon: patternIcon,
       route: '/',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris varius ut nulla nec aliquet. Nam lorem arcu, hendrerit vel sem ac, scelerisque venenatis neque. Fusce vitae massa a dui maximus ullamcorper. Nunc dignissim semper rutrum. Donec a mi id dui viverra porttitor.',
     },
     {
       label: 'Scales one chord',
-      icon: 'share',
+      icon: oneScalesIcon,
       route: '/scales-one-chord',
+      description: 'lorem ipsum dolor sit amet Scales one chord',
     },
     {
       label: 'Intervals',
-      icon: 'diversity_2',
+      icon: patternIcon,
       route: '/intervals',
+      description: 'lorem ipsum dolor sit amet Intervals',
     },
     {
       label: 'Custom creator',
-      icon: 'diversity_2',
+      icon: customCreatorIcon,
       route: '/custom-creator',
+      description: 'lorem ipsum dolor sit amet Custom creator',
     },
   ]);
+
+  const currentRoute = computed(() => items.value.find(item => item.route === route.path));
 </script>
 
 <template>
-  <ul class="at-nav m-0 p-0 list-none">
-    <li v-for="(item, index) in items" :key="index" class="mb-2 pl-0">
-      <router-link v-if="item.route" v-slot="{ href, navigate, isActive }" :to="item.route" custom>
-        <a
-          :class="isActive ? 'active text-yellow-100' : 'text-white'"
-          class="flex align-items-center no-underline"
-          :href="href"
-          @click="navigate"
-        >
-          <span :class="item.icon" />
-          <Component class="at-nav__icon" :is="item.icon"></Component>
-          <span class="pl-2">{{ item.label }}</span>
-        </a>
-      </router-link>
-    </li>
-  </ul>
+  <nav>
+    <ul class="at-nav m-0 p-0 list-none">
+      <li v-for="(item, index) in items" :key="index" class="mb-2 pl-0">
+        <router-link v-if="item.route" v-slot="{ href, navigate, isActive }" :to="item.route" custom>
+          <a
+            :class="isActive ? 'active text-yellow-100' : 'text-white'"
+            class="flex align-items-center no-underline"
+            :href="href"
+            @click="navigate"
+          >
+            <span :class="item.icon" />
+            <Component class="at-nav__icon" :is="item.icon" />
+            <span class="pl-2">{{ item.label }}</span>
+          </a>
+        </router-link>
+      </li>
+    </ul>
+    <p class="text">{{ currentRoute?.description }}</p>
+  </nav>
 </template>
 
 <style lang="scss" scoped>
-.at-nav {
-  &__icon {
-    max-width: 16px;
-    max-height: 16px;
-    fill: #fff;
+  .at-nav {
+    &__icon {
+      fill: #fff;
+    }
   }
-}
 </style>
