@@ -3,6 +3,8 @@
 
   import Logo from '@/components/layouts/logo.vue';
   import Navigation from "@/components/layouts/navigation.vue";
+
+  console.log(import.meta.env);
 </script>
 
 <template>
