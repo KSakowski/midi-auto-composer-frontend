@@ -42,6 +42,7 @@ declare module 'vue-router/auto/routes' {
     'home': RouteRecordInfo<'home', '/', Record<never, never>, Record<never, never>>,
     'custom-creator': RouteRecordInfo<'custom-creator', '/custom-creator', Record<never, never>, Record<never, never>>,
     'intervals': RouteRecordInfo<'intervals', '/intervals', Record<never, never>, Record<never, never>>,
+    'melody': RouteRecordInfo<'melody', '/melody', Record<never, never>, Record<never, never>>,
     'random-scales-one-chord': RouteRecordInfo<'random-scales-one-chord', '/scales-one-chord', Record<never, never>, Record<never, never>>,
   }
 }

@@ -29,6 +29,12 @@
       description: 'lorem ipsum dolor sit amet Intervals',
     },
     {
+      label: 'Melody',
+      icon: patternIcon,
+      route: '/melody',
+      description: 'lorem ipsum dolor sit amet Intervals',
+    },
+    {
       label: 'Custom creator',
       icon: customCreatorIcon,
       route: '/custom-creator',

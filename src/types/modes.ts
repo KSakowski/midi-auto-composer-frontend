@@ -47,3 +47,10 @@ export interface CustomCreatorParams {
 export interface CustomCreator extends CustomCreatorParams {
   components: ComponentForm[];
 }
+
+export interface MelodyMode {
+  tempo: number;
+  tonation: string;
+  melody_id: string;
+  notes_range: number[];
+}
