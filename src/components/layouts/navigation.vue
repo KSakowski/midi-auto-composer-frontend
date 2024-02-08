@@ -15,25 +15,25 @@
       icon: patternIcon,
       route: '/',
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris varius ut nulla nec aliquet. Nam lorem arcu, hendrerit vel sem ac, scelerisque venenatis neque. Fusce vitae massa a dui maximus ullamcorper. Nunc dignissim semper rutrum. Donec a mi id dui viverra porttitor.',
+        'Learn scales by playing the selected pattern at every each scale step. This allows you  to recognize characteristic intervals of a scale and helps to build confidence in using them.',
     },
     {
       label: 'Scales one chord',
       icon: oneScalesIcon,
       route: '/scales-one-chord',
-      description: 'lorem ipsum dolor sit amet Scales one chord',
+      description: 'First step towards musical improvisation. Choose a chord and then select one or more scales to be played along. You can start with one scale and then try adding another to hear how do they mix together.',
     },
     {
       label: 'Intervals',
       icon: intervalsIcon,
       route: '/intervals',
-      description: 'lorem ipsum dolor sit amet Intervals',
+      description: 'This excercise helps you to train your musical hearing. Select which intervals will be played randomly, upwards or downwards, one after another.',
     },
     {
       label: 'Melody',
       icon: intervalsIcon,
       route: '/melody',
-      description: 'lorem ipsum dolor sit amet Intervals',
+      description: 'Learn how to improvise scales with chords progression. You can build composition by adding following blocks. Every component block has four features: tonation, duration in quarternotes, chord name, scale name. Just click on plus sign and make a choice what the next bar should be.',
     },
     {
       label: 'Custom creator',
