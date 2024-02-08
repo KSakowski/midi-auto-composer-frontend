@@ -33,13 +33,13 @@
       label: 'Melody',
       icon: intervalsIcon,
       route: '/melody',
-      description: 'Learn how to improvise scales with chords progression. You can build composition by adding following blocks. Every component block has four features: tonation, duration in quarternotes, chord name, scale name. Just click on plus sign and make a choice what the next bar should be.',
+      description: 'Choose one of the most wisely known melody its tonation and tempo.',
     },
     {
       label: 'Custom creator',
       icon: customCreatorIcon,
       route: '/custom-creator',
-      description: 'lorem ipsum dolor sit amet Custom creator',
+      description: 'Learn how to improvise scales with chords progression. You can build composition by adding following blocks. Every component block has four features: tonation, duration in quarternotes, chord name, scale name. Just click on plus sign and make a choice what the next bar should be.',
     },
   ]);
 
