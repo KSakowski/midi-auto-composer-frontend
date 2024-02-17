@@ -4,7 +4,7 @@
   import Logo from '@/components/layouts/logo.vue';
   import Navigation from "@/components/layouts/navigation.vue";
 
-  console.log('test env');
+  console.log('test env #2');
   console.log(process.env);
 </script>
 
