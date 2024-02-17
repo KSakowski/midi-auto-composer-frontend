@@ -4,9 +4,10 @@
   import Logo from '@/components/layouts/logo.vue';
   import Navigation from "@/components/layouts/navigation.vue";
 
-  console.log('test env #2');
+  console.log('test env #3');
   // @ts-ignore
-  console.log(process?.env);
+  console.log(__DUMMY__);
+  console.log(import.meta.env);
 </script>
 
 <template>

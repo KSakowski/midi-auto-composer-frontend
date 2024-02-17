@@ -9,6 +9,7 @@ import svgLoader from 'vite-svg-loader';
 // https://vitejs.dev/config/
 export default ({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '');
+  console.log(env);
 
   return defineConfig({
     plugins: [
@@ -31,7 +32,7 @@ export default ({ mode }) => {
       },
     },
     define: {
-      'process.env': env,
+      __DUMMY__: `"${env.DUMMY}"`
     },
   });
 };
