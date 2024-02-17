@@ -1,5 +1,4 @@
 import { fileURLToPath, URL } from 'node:url';
-import ImportMetaEnvPlugin from '@import-meta-env/unplugin';
 
 import vue from '@vitejs/plugin-vue';
 import VueRouter from 'unplugin-vue-router/vite';
@@ -25,15 +24,14 @@ export default ({ mode }) => {
 
       // https://github.com/jpkleemans/vite-svg-loader
       svgLoader(),
-
-      ImportMetaEnvPlugin.vite({
-        example: '.env.example',
-      }),
     ],
     resolve: {
       alias: {
         '@': fileURLToPath(new URL('./src', import.meta.url)),
       },
+    },
+    define: {
+      'process.env': env,
     },
   });
 };
