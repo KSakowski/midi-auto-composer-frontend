@@ -4,7 +4,7 @@
   import Logo from '@/components/layouts/logo.vue';
   import Navigation from "@/components/layouts/navigation.vue";
 
-  console.log('test env #4');
+  console.log('test env #5');
   console.log(import.meta.env.DUMMY);
 </script>
 
