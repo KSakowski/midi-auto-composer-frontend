@@ -5,7 +5,8 @@
   import Navigation from "@/components/layouts/navigation.vue";
 
   console.log('test env #2');
-  console.log(process.env);
+  // @ts-ignore
+  console.log(process?.env);
 </script>
 
 <template>
