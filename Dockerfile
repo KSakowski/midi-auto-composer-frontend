@@ -1,20 +1,30 @@
-FROM node:latest as build-stage
-
-# TODO
-ENV APP_API_URL https://backend-xpezbyfyxq-ew.a.run.app/v1/
+FROM node:20-alpine AS builder
 
 WORKDIR /app
 
-COPY package.json package-lock.json ./
+RUN npm --silent install --location=global pkg
+
+COPY package.json .
+COPY package-lock.json .
+
+RUN npm ci
+
+RUN npx pkg ./node_modules/@import-meta-env/cli/bin/import-meta-env.js \
+      --target node18-alpine \
+      --output import-meta-env-alpine
 
 COPY . .
-RUN npm i
+
 RUN npm run build
 
-FROM nginx:stable-alpine as production-stage
 
-COPY --from=build-stage /app/dist /usr/share/nginx/html
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-EXPOSE 80
+FROM nginx:alpine AS runner
 
-CMD ["nginx", "-g", "daemon off;"]
+COPY --from=builder /app/dist /dist
+COPY --from=builder /app/import-meta-env-alpine /
+COPY .env.example /
+COPY nginx.conf /nginx.conf.template
+
+CMD envsubst '$PORT,$APP_ENVIRONMENT' < /nginx.conf.template > /etc/nginx/nginx.conf && \
+    ./import-meta-env-alpine --example /.env.example && \
+    nginx -g 'daemon off;'
