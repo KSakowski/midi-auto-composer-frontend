@@ -5,7 +5,7 @@
   import Navigation from "@/components/layouts/navigation.vue";
 
   console.log('test env');
-  console.log(import.meta.env);
+  console.log(process.env);
 </script>
 
 <template>
