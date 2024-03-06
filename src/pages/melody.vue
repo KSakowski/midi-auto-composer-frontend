@@ -9,6 +9,7 @@
   import PlayModesService from '@/services/playModes';
   import { Settings } from '@/settings';
   import type { MelodyMode } from '@/types/modes';
+  import Card from "primevue/card";
 
   const limits = Settings.page.pattern;
   const player = ref();
@@ -38,18 +39,43 @@
 </script>
 
 <template>
-  <div class="grid grid-nogutter">
-    <div class="col-12 md:col-4">
-      <ScrollPanel class="pr-3" style="width: 100%; height: calc(100vh - 180px)">
-        <h3 class="mb-0">Tonation</h3>
-        <Tonation v-model="form.tonation" />
-
-        <h3 class="mb-0">Tempo</h3>
-        <Tempo v-model="form.tempo" :min="20" :max="80" />
-      </ScrollPanel>
+  <div>
+    <div class="at-header">
+      <div class="container py-3">
+        <h1 class="text-white text-center">Melody</h1>
+        <p class="text-white max-w-30rem text-center mx-auto">
+          Choose one of the most wisely known melody its tonation and tempo.
+        </p>
+        <Player
+            class="text-center"
+            ref="player"
+            :file="data"
+            :to-reload="toReload"
+            :is-loading="isFetching"
+            @loadFile="loadFile"
+        />
+      </div>
     </div>
-    <div class="col-23 md:col-8 flex flex-column align-items-center justify-content-center">
-      <Player ref="player" :file="data" :to-reload="toReload" :is-loading="isFetching" @loadFile="loadFile" />
+    <div class="container -mt-8 pb-8">
+      <div class="grid w-full">
+        <div class="col-12 md:col-6 lg:col-4">
+          <Card class="w-full h-full">
+            <template #title>Tonation</template>
+            <template #content>
+              <Tonation v-model="form.tonation" />
+            </template>
+          </Card>
+        </div>
+
+        <div class="col-12 md:col-6 lg:col-4">
+          <Card class="w-full h-full">
+            <template #title>Tempo</template>
+            <template #content>
+              <Tempo v-model="form.tempo" :min="20" :max="80" />
+            </template>
+          </Card>
+        </div>
+      </div>
     </div>
   </div>
 </template>

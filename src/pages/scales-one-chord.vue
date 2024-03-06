@@ -1,5 +1,6 @@
 <script setup lang="ts">
   import { useQuery } from '@tanstack/vue-query';
+  import Card from 'primevue/card';
   import Checkbox from 'primevue/checkbox';
   import Dropdown from 'primevue/dropdown';
   import ScrollPanel from 'primevue/scrollpanel';
@@ -50,51 +51,83 @@
 </script>
 
 <template>
-  <div class="grid grid-nogutter">
-    <div class="col-12 md:col-4">
-      <ScrollPanel class="pr-3" style="width: 100%; height: calc(100vh - 180px)">
-        <h3 class="mb-0">Tonation</h3>
-        <Tonation v-model="form.tonation" />
-
-        <h3 class="mb-0">Tempo</h3>
-        <Tempo v-model="form.tempo" :min="limits.tempo.min" :max="limits.tempo.max" />
-
-        <h3 class="mb-0">Scales</h3>
-        <Scales v-model="form.scales_names" />
-
-        <h3 class="mb-0">Chord name</h3>
-        <Chord v-model="form.chord_name" />
-
-        <h3 class="mb-0">Move Scale Max</h3>
-        <Tempo
-          class="mb-5"
-          v-model="form.move_scale_max"
-          :min="limits.moveScaleMax.min"
-          :max="limits.moveScaleMax.max"
+  <div>
+    <div class="at-header">
+      <div class="container py-3">
+        <h1 class="text-white text-center">Scales one chord</h1>
+        <p class="text-white max-w-30rem text-center mx-auto">
+          First step towards musical improvisation. Choose a chord and then select one or more scales to be played
+          along. You can start with one scale and then try adding another to hear how do they mix together.
+        </p>
+        <Player
+          class="text-center"
+          ref="player"
+          :file="data"
+          :to-reload="toReload"
+          :is-loading="isFetching"
+          @loadFile="loadFile"
         />
-
-        <h3 class="mb-0">Quartones</h3>
-        <Tempo class="mb-5" v-model="form.quarternotes" :min="limits.quartones.min" :max="limits.quartones.max" />
-
-        <h3 class="mb-0">Difficulty</h3>
-        <Dropdown v-model="form.difficulty" :options="difficultyOptions" class="w-full mb-5" />
-
-        <div class="flex align-items-center mb-2">
-          <Checkbox v-model="form.bassline" inputId="bassline" :binary="true" />
-          <label for="bassline" class="ml-2">Bassline</label>
-        </div>
-        <div class="flex align-items-center mb-2">
-          <Checkbox v-model="form.percussion" inputId="percussion" :binary="true" />
-          <label for="percussion" class="ml-2">Percussion</label>
-        </div>
-        <div class="flex align-items-center mb-2">
-          <Checkbox v-model="form.random_sequence" inputId="random_sequence" :binary="true" />
-          <label for="random_sequence" class="ml-2">Random sequence</label>
-        </div>
-      </ScrollPanel>
+      </div>
     </div>
-    <div class="col-23 md:col-8 flex flex-column align-items-center justify-content-center">
-      <Player ref="player" :file="data" :to-reload="toReload" :is-loading="isFetching" @loadFile="loadFile" />
+    <div class="container -mt-8 pb-8">
+      <div class="grid w-full">
+        <div class="col-12 md:col-6 lg:col-4">
+          <Card class="w-full h-full">
+            <template #title>Tonation</template>
+            <template #content>
+              <Tonation v-model="form.tonation" />
+
+              <div class="p-card-title mt-5" data-pc-section="title">Tempo</div>
+              <Tempo v-model="form.tempo" :min="limits.tempo.min" :max="limits.tempo.max" />
+            </template>
+          </Card>
+        </div>
+
+        <div class="col-12 md:col-6 lg:col-4">
+          <Card class="w-full h-full">
+            <template #title>Scales</template>
+            <template #content>
+              <Scales v-model="form.scales_names" />
+
+              <div class="p-card-title mt-5" data-pc-section="title">Chord name</div>
+              <Chord v-model="form.chord_name" />
+
+              <div class="p-card-title mt-5" data-pc-section="title">Move Scale Max</div>
+              <Tempo
+                  class="mb-5"
+                  v-model="form.move_scale_max"
+                  :min="limits.moveScaleMax.min"
+                  :max="limits.moveScaleMax.max"
+              />
+            </template>
+          </Card>
+        </div>
+
+        <div class="col-12 md:col-6 lg:col-4">
+          <Card class="w-full h-full">
+            <template #title>Quartones</template>
+            <template #content>
+              <Tempo class="mb-5" v-model="form.quarternotes" :min="limits.quartones.min" :max="limits.quartones.max" />
+
+              <div class="p-card-title mt-5" data-pc-section="title">Difficulty</div>
+              <Dropdown v-model="form.difficulty" :options="difficultyOptions" class="w-full mb-5" />
+
+              <div class="flex align-items-center mb-2">
+                <Checkbox v-model="form.bassline" inputId="bassline" :binary="true" />
+                <label for="bassline" class="ml-2">Bassline</label>
+              </div>
+              <div class="flex align-items-center mb-2">
+                <Checkbox v-model="form.percussion" inputId="percussion" :binary="true" />
+                <label for="percussion" class="ml-2">Percussion</label>
+              </div>
+              <div class="flex align-items-center mb-2">
+                <Checkbox v-model="form.random_sequence" inputId="random_sequence" :binary="true" />
+                <label for="random_sequence" class="ml-2">Random sequence</label>
+              </div>
+            </template>
+          </Card>
+        </div>
+      </div>
     </div>
   </div>
 </template>

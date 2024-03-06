@@ -70,7 +70,7 @@
       @click="updatePattern(item)"
     >
       {{ item }}
-      <span class="add-btn flex align-items-center justify-content-center bg-yellow-100">+</span>
+      <span class="add-btn flex align-items-center justify-content-center bg-green-300">+</span>
     </Button>
   </div>
 </template>

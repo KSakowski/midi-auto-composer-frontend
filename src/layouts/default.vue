@@ -2,7 +2,7 @@
   import Card from 'primevue/card';
 
   import Logo from '@/components/layouts/logo.vue';
-  import Navigation from "@/components/layouts/navigation.vue";
+  import Navigation from '@/components/layouts/navigation.vue';
 
   console.log('test env #3');
   // @ts-ignore
@@ -11,33 +11,27 @@
 </script>
 
 <template>
-  <Card class="container">
-    <template #content>
-      <header class="mb-4 text-center">
+  <div class="">
+    <header class="fixed bg-white opacity-90 w-full py-3 shadow-1 z-5">
+      <div class="container">
         <Logo />
-      </header>
-      <div class="grid grid-nogutter">
-        <main class="col-12 md:col-9">
-          <router-view v-slot="{ Component }">
-            <transition name="fade" mode="out-in">
-              <component :is="Component" />
-            </transition>
-          </router-view>
-        </main>
-
-        <nav class="col-12 md:col-3">
-          <h3>Mode</h3>
-          <Navigation />
-        </nav>
       </div>
-    </template>
-  </Card>
+    </header>
+    <main class="at-main">
+      <router-view v-slot="{ Component }">
+        <transition name="fade" mode="out-in">
+          <component :is="Component" />
+        </transition>
+      </router-view>
+    </main>
+    <Navigation />
+  </div>
 </template>
 
 <style lang="scss" scoped>
-  .container {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 16px;
-  }
+.at-main {
+  padding-top: 55px;
+
+  min-height: calc(100vh - 55px);
+}
 </style>

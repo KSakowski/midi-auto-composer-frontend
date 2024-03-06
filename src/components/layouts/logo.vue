@@ -3,8 +3,8 @@
 </script>
 
 <template>
-  <RouterLink to="/" class="text-white no-underline">
-    <h1 class="m-0 mr-4">
+  <RouterLink to="/" class="no-underline">
+    <h1 class="flex align-items-center text-lg m-0">
       <span class="material-symbols-outlined">music_note</span>
       Audio Trainer
     </h1>

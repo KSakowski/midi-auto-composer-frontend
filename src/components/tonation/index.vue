@@ -55,6 +55,7 @@
     height: 120px;
     display: flex;
     padding: 0 0 0 1rem;
+    margin: 0;
     position: relative;
 
     .white,

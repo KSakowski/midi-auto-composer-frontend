@@ -22,7 +22,7 @@
 
 <template>
   <div class="tempo">
-    <InputNumber v-model="tempo" :min="min" :max="max" class="w-full mb-4" />
+    <InputNumber v-model="tempo" :min="min" :max="max" class="flex mb-4" />
     <Slider v-model="tempo" :min="min" :max="max" class="mx-3" />
   </div>
 </template>

@@ -47,31 +47,40 @@
 </script>
 
 <template>
-  <nav>
-    <ul class="at-nav m-0 mb-5 p-0 list-none">
-      <li v-for="(item, index) in items" :key="index" class="mb-2 pl-0">
+  <nav  class="at-nav bg-gray-50 opacity-90 shadow-1 py-2 z-5">
+    <ul class="flex column-gap-4 justify-content-center p-0 m-0 list-none">
+      <li v-for="(item, index) in items" :key="index">
         <router-link v-if="item.route" v-slot="{ href, navigate, isActive }" :to="item.route" custom>
           <a
-            :class="isActive ? 'active text-yellow-100' : 'text-white'"
-            class="flex align-items-center no-underline"
+            :class="isActive ? 'active text-primary-500' : 'text-gray-900'"
+            class="no-underline text-center"
             :href="href"
             @click="navigate"
           >
-            <span :class="item.icon" />
-            <Component class="at-nav__icon" :is="item.icon" />
-            <span class="pl-2">{{ item.label }}</span>
+            <Component class="at-nav__icon m-auto flex" :class="isActive ? 'active' : ''" :is="item.icon" />
+            <p class="p-0 m-0 max-w-5rem text-sm">{{ item.label }}</p>
           </a>
         </router-link>
       </li>
     </ul>
-    <p class="text border-1 border-round p-3 text-justify">{{ currentRoute?.description }}</p>
+<!--    <p class="text border-1 border-round p-3 text-justify">{{ currentRoute?.description }}</p>-->
   </nav>
 </template>
 
 <style lang="scss" scoped>
   .at-nav {
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+
     &__icon {
-      fill: #fff;
+      height: 20px;
+      width: 20px;
+      fill: var(--gray-900);
+
+      &.active {
+        fill: var(--primary-color);
+      }
     }
   }
 </style>
