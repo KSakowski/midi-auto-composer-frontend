@@ -4,7 +4,7 @@
   import Button from 'primevue/button';
   import Card from 'primevue/card';
   import Dialog from 'primevue/dialog';
-  import { reactive, ref, watch } from 'vue';
+  import {onMounted, reactive, ref, watch} from 'vue';
 
   import Chord from '@/components/chord/index.vue';
   import Player from '@/components/player/index.vue';
@@ -76,28 +76,23 @@
 
   const { option } = useSortable(componentsEl, components);
   option('animation', 200);
+
+  const isMounted = ref(false);
+  onMounted(() => (isMounted.value = true));
 </script>
 
 <template>
   <div>
-    <div class="at-header">
-      <div class="container py-3">
-        <h1 class="text-white text-center">Custom creator</h1>
-        <p class="text-white max-w-30rem text-center mx-auto">
-          Learn how to improvise scales with chords progression. You can build composition by adding following blocks.
-          Every component block has four features: tonation, duration in quarternotes, chord name, scale name. Just
-          click on plus sign and make a choice what the next bar should be.
-        </p>
-        <Player
+    <Teleport v-if="isMounted" to=".player-container">
+      <Player
           class="text-center"
           ref="player"
           :file="data"
           :to-reload="toReload"
           :is-loading="isFetching"
           @loadFile="loadFile"
-        />
-      </div>
-    </div>
+      />
+    </Teleport>
     <div class="container -mt-8 pb-8">
       <div class="grid w-full">
         <div class="col-12 md:col-6 lg:col-4">

@@ -2,7 +2,7 @@
   import { useQuery } from '@tanstack/vue-query';
   import Card from 'primevue/card';
   import Checkbox from 'primevue/checkbox';
-  import { reactive, ref, watch } from 'vue';
+  import { onMounted, reactive, ref, watch } from 'vue';
 
   import Pattern from '@/components/pattern/index.vue';
   import Player from '@/components/player/index.vue';
@@ -16,8 +16,9 @@
   const limits = Settings.page.pattern;
   const player = ref();
   const toReload = ref(false);
+
   const form = reactive<PatternMode>({
-    tempo: limits.tempo.defaultValue,
+    tempo: Settings.page.pattern.tempo.defaultValue,
     scale_name: 'ionian',
     tonation: 'c',
     pattern: [1, 2, 3],
@@ -32,7 +33,6 @@
     queryFn: () => PlayModesService.pattern(form),
     enabled: false,
   });
-
   function loadFile() {
     refetch();
     toReload.value = false;
@@ -42,27 +42,23 @@
     player.value?.stop();
     toReload.value = true;
   });
+
+  const isMounted = ref(false);
+  onMounted(() => (isMounted.value = true));
 </script>
 
 <template>
   <div>
-    <div class="at-header">
-      <div class="container py-3">
-        <h1 class="text-white text-center">Pattern</h1>
-        <p class="text-white max-w-30rem text-center mx-auto">
-          Learn scales by playing the selected pattern at every each scale step. This allows you to recognize
-          characteristic intervals of a scale and helps to build confidence in using them.
-        </p>
-        <Player
-          class="text-center"
-          ref="player"
-          :file="data"
-          :to-reload="toReload"
-          :is-loading="isFetching"
-          @loadFile="loadFile"
-        />
-      </div>
-    </div>
+    <Teleport v-if="isMounted" to=".player-container">
+      <Player
+        class="text-center"
+        ref="player"
+        :file="data"
+        :to-reload="toReload"
+        :is-loading="isFetching"
+        @loadFile="loadFile"
+      />
+    </Teleport>
     <div class="container -mt-8 pb-8">
       <div class="grid w-full">
         <div class="col-12 md:col-6 lg:col-4">

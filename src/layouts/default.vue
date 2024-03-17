@@ -1,9 +1,11 @@
 <script setup lang="ts">
-  import Card from 'primevue/card';
+  import { useRoute } from 'vue-router';
 
   import Logo from '@/components/layouts/logo.vue';
-  import Navigation from '@/components/layouts/navigation.vue';
+  import FooterNavigation from '@/components/layouts/navigation/footerNavigation.vue';
+  import HeaderNavigation from '@/components/layouts/navigation/headerNavigation.vue';
 
+  const route = useRoute();
   console.log('test env #3');
   // @ts-ignore
   console.log(__DUMMY__);
@@ -18,20 +20,22 @@
       </div>
     </header>
     <main class="at-main">
+      <HeaderNavigation :key="route.path" />
+
       <router-view v-slot="{ Component }">
         <transition name="fade" mode="out-in">
           <component :is="Component" />
         </transition>
       </router-view>
     </main>
-    <Navigation />
+    <FooterNavigation />
   </div>
 </template>
 
 <style lang="scss" scoped>
-.at-main {
-  padding-top: 55px;
+  .at-main {
+    padding-top: 55px;
 
-  min-height: calc(100vh - 55px);
-}
+    min-height: calc(100vh - 55px);
+  }
 </style>

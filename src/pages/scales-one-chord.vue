@@ -4,7 +4,7 @@
   import Checkbox from 'primevue/checkbox';
   import Dropdown from 'primevue/dropdown';
   import ScrollPanel from 'primevue/scrollpanel';
-  import { reactive, ref, watch } from 'vue';
+  import {onMounted, reactive, ref, watch} from 'vue';
 
   import Chord from '@/components/chord/index.vue';
   import Player from '@/components/player/index.vue';
@@ -36,7 +36,7 @@
   const { isFetching, data, refetch } = useQuery({
     queryKey: ['randomScalesOneChord'],
     queryFn: () => PlayModesService.scalesOneChord(form),
-    enabled: false,
+    enabled: false
   });
 
   function loadFile() {
@@ -48,27 +48,23 @@
     player.value?.stop();
     toReload.value = true;
   });
+
+  const isMounted = ref(false);
+  onMounted(() => (isMounted.value = true));
 </script>
 
 <template>
   <div>
-    <div class="at-header">
-      <div class="container py-3">
-        <h1 class="text-white text-center">Scales one chord</h1>
-        <p class="text-white max-w-30rem text-center mx-auto">
-          First step towards musical improvisation. Choose a chord and then select one or more scales to be played
-          along. You can start with one scale and then try adding another to hear how do they mix together.
-        </p>
-        <Player
+    <Teleport v-if="isMounted" to=".player-container">
+      <Player
           class="text-center"
           ref="player"
           :file="data"
           :to-reload="toReload"
           :is-loading="isFetching"
           @loadFile="loadFile"
-        />
-      </div>
-    </div>
+      />
+    </Teleport>
     <div class="container -mt-8 pb-8">
       <div class="grid w-full">
         <div class="col-12 md:col-6 lg:col-4">

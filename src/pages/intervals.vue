@@ -1,8 +1,8 @@
 <script setup lang="ts">
   import { useQuery } from '@tanstack/vue-query';
+  import Card from 'primevue/card';
   import Dropdown from 'primevue/dropdown';
-  import ScrollPanel from 'primevue/scrollpanel';
-  import { reactive, ref, watch } from 'vue';
+  import { onMounted, reactive, ref, watch } from 'vue';
 
   import Intervals from '@/components/intervals/index.vue';
   import Player from '@/components/player/index.vue';
@@ -10,14 +10,13 @@
   import PlayModesService from '@/services/playModes';
   import { Settings } from '@/settings';
   import type { IntervalsMode } from '@/types/modes';
-  import Card from "primevue/card";
 
   const limits = Settings.page.intervals;
+  const difficultyOptions = ['easy', 'normal', 'hard'];
   const player = ref();
   const toReload = ref(false);
-  const difficultyOptions = ['easy', 'normal', 'hard'];
   const form = reactive<IntervalsMode>({
-    tempo: limits.tempo.defaultValue,
+    tempo: Settings.page.intervals.tempo.defaultValue,
     intervals: ['m2'],
     difficulty: 'normal',
     notes_range: [40, 81],
@@ -38,26 +37,23 @@
     player.value?.stop();
     toReload.value = true;
   });
+
+  const isMounted = ref(false);
+  onMounted(() => (isMounted.value = true));
 </script>
 
 <template>
   <div>
-    <div class="at-header">
-      <div class="container py-3">
-        <h1 class="text-white text-center">Intervals</h1>
-        <p class="text-white max-w-30rem text-center mx-auto">
-          This excercise helps you to train your musical hearing. Select which intervals will be played randomly, upwards or downwards, one after another.
-        </p>
-        <Player
-            class="text-center"
-            ref="player"
-            :file="data"
-            :to-reload="toReload"
-            :is-loading="isFetching"
-            @loadFile="loadFile"
-        />
-      </div>
-    </div>
+    <Teleport v-if="isMounted" to=".player-container">
+      <Player
+        class="text-center"
+        ref="player"
+        :file="data"
+        :to-reload="toReload"
+        :is-loading="isFetching"
+        @loadFile="loadFile"
+      />
+    </Teleport>
     <div class="container -mt-8 pb-8">
       <div class="grid w-full">
         <div class="col-12 md:col-6 lg:col-4">
