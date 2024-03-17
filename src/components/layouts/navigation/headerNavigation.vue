@@ -15,7 +15,9 @@
       currentRoute.value.index !== firstRoute.index
         ? navigationItems.find(item => item.index === currentRoute.value.index - 1)
         : lastRoute;
-    router.push(previousRoute?.route);
+
+    if (previousRoute)
+      router.push(previousRoute?.route);
   }
 
   function forward() {
@@ -23,7 +25,9 @@
       currentRoute.value.index !== lastRoute.index
         ? navigationItems.find(item => item.index === currentRoute.value.index + 1)
         : firstRoute;
-    router.push(nextRoute.route);
+
+    if (nextRoute)
+      router.push(nextRoute.route);
   }
 </script>
 
