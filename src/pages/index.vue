@@ -23,8 +23,6 @@
     tonation: 'c',
     pattern: [1, 2, 3],
     play_upwards: true,
-    preview_pattern: true,
-    pause_between: true,
     notes_range: [40, 81],
   });
 
@@ -59,7 +57,7 @@
         @loadFile="loadFile"
       />
     </Teleport>
-    <div class="container -mt-8 pb-8">
+    <div class="container sm:-mt-8 pb-8">
       <div class="grid w-full">
         <div class="col-12 md:col-6 lg:col-4">
           <Card class="w-full h-full">
@@ -91,14 +89,6 @@
               <div class="flex align-items-center mt-6 mb-2">
                 <Checkbox v-model="form.play_upwards" inputId="play_upwards" :binary="true" />
                 <label for="play_upwards" class="ml-2">Play upwards</label>
-              </div>
-              <div class="flex align-items-center mb-2">
-                <Checkbox v-model="form.preview_pattern" inputId="preview_pattern" :binary="true" />
-                <label for="preview_pattern" class="ml-2">Peview pattern</label>
-              </div>
-              <div class="flex align-items-center mb-2">
-                <Checkbox v-model="form.pause_between" inputId="pause_between" :binary="true" />
-                <label for="pause_between" class="ml-2">Pause between</label>
               </div>
             </template>
           </Card>

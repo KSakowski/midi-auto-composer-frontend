@@ -24,12 +24,9 @@
     tempo: limits.tempo.defaultValue,
     scales_names: ['ionian'],
     chord_name: 'major',
-    quarternotes: limits.quartones.defaultValue,
-    move_scale_max: limits.moveScaleMax.defaultValue,
     difficulty: 'normal',
     bassline: true,
     percussion: true,
-    random_sequence: true,
     notes_range: [40, 81],
   });
 
@@ -65,7 +62,7 @@
           @loadFile="loadFile"
       />
     </Teleport>
-    <div class="container -mt-8 pb-8">
+    <div class="container sm:-mt-8 pb-8">
       <div class="grid w-full">
         <div class="col-12 md:col-6 lg:col-4">
           <Card class="w-full h-full">
@@ -87,25 +84,14 @@
 
               <div class="p-card-title mt-5" data-pc-section="title">Chord name</div>
               <Chord v-model="form.chord_name" />
-
-              <div class="p-card-title mt-5" data-pc-section="title">Move Scale Max</div>
-              <Tempo
-                  class="mb-5"
-                  v-model="form.move_scale_max"
-                  :min="limits.moveScaleMax.min"
-                  :max="limits.moveScaleMax.max"
-              />
             </template>
           </Card>
         </div>
 
         <div class="col-12 md:col-6 lg:col-4">
           <Card class="w-full h-full">
-            <template #title>Quartones</template>
+            <template #title>Difficulty</template>
             <template #content>
-              <Tempo class="mb-5" v-model="form.quarternotes" :min="limits.quartones.min" :max="limits.quartones.max" />
-
-              <div class="p-card-title mt-5" data-pc-section="title">Difficulty</div>
               <Dropdown v-model="form.difficulty" :options="difficultyOptions" class="w-full mb-5" />
 
               <div class="flex align-items-center mb-2">
@@ -115,10 +101,6 @@
               <div class="flex align-items-center mb-2">
                 <Checkbox v-model="form.percussion" inputId="percussion" :binary="true" />
                 <label for="percussion" class="ml-2">Percussion</label>
-              </div>
-              <div class="flex align-items-center mb-2">
-                <Checkbox v-model="form.random_sequence" inputId="random_sequence" :binary="true" />
-                <label for="random_sequence" class="ml-2">Random sequence</label>
               </div>
             </template>
           </Card>

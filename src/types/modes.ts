@@ -4,8 +4,6 @@ export interface PatternMode {
   tonation: string;
   pattern: number[];
   play_upwards: boolean;
-  preview_pattern: boolean;
-  pause_between: boolean;
   notes_range: number[];
 }
 
@@ -16,12 +14,9 @@ export interface RandomScalesOneChord {
   scales_names: string[];
   chord_name: string;
   tonation: string;
-  quarternotes: number;
-  move_scale_max: number;
   difficulty: Difficulty;
   bassline: boolean;
   percussion: boolean;
-  random_sequence: boolean;
   notes_range: number[];
 }
 

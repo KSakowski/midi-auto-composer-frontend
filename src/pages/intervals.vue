@@ -54,7 +54,7 @@
         @loadFile="loadFile"
       />
     </Teleport>
-    <div class="container -mt-8 pb-8">
+    <div class="container sm:-mt-8 pb-8">
       <div class="grid w-full">
         <div class="col-12 md:col-6 lg:col-4">
           <Card class="w-full h-full">
