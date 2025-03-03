@@ -19,7 +19,6 @@
         </router-link>
       </li>
     </ul>
-    <!--    <p class="text border-1 border-round p-3 text-justify">{{ currentRoute?.description }}</p>-->
   </nav>
 </template>
 
@@ -32,10 +31,10 @@
     &__icon {
       height: 20px;
       width: 20px;
-      fill: var(--gray-900);
+      fill: var(--p-gray-900);
 
       &.active {
-        fill: var(--primary-color);
+        fill: var(--p-primary-color);
       }
     }
   }

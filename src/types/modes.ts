@@ -7,7 +7,7 @@ export interface PatternMode {
   notes_range: number[];
 }
 
-export type Difficulty = "easy" | "normal" | "hard";
+export type Difficulty = 'easy' | 'normal' | 'hard';
 
 export interface RandomScalesOneChord {
   tempo: number;

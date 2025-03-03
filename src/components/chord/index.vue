@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import { useVModel } from '@vueuse/core';
-  import Dropdown from 'primevue/dropdown';
+  import Select from 'primevue/select';
 
   import { Chords } from './chords';
 
@@ -13,5 +13,5 @@
 </script>
 
 <template>
-  <Dropdown v-model="selectedChord" :options="Chords" option-label="alias_eng" option-value="value" class="w-full" />
+  <Select v-model="selectedChord" :options="Chords" option-label="alias_eng" option-value="value" class="w-full" />
 </template>

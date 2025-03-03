@@ -1,8 +1,8 @@
 <script setup lang="ts">
   import { useQuery } from '@tanstack/vue-query';
   import Card from 'primevue/card';
-  import Dropdown from 'primevue/dropdown';
-  import { onMounted, reactive, ref, watch } from 'vue';
+  import Select from 'primevue/select';
+  import { reactive, ref, watch } from 'vue';
 
   import Intervals from '@/components/intervals/index.vue';
   import Player from '@/components/player/index.vue';
@@ -37,24 +37,19 @@
     player.value?.stop();
     toReload.value = true;
   });
-
-  const isMounted = ref(false);
-  onMounted(() => (isMounted.value = true));
 </script>
 
 <template>
   <div>
-    <Teleport v-if="isMounted" to=".player-container">
+    <div class="container sm:-mt-8 pb-8">
       <Player
-        class="text-center"
+        class="mb-4 text-center"
         ref="player"
         :file="data"
         :to-reload="toReload"
         :is-loading="isFetching"
         @loadFile="loadFile"
       />
-    </Teleport>
-    <div class="container sm:-mt-8 pb-8">
       <div class="grid w-full">
         <div class="col-12 md:col-6 lg:col-4">
           <Card class="w-full h-full">
@@ -78,7 +73,7 @@
           <Card class="w-full h-full">
             <template #title>Difficulty</template>
             <template #content>
-              <Dropdown v-model="form.difficulty" :options="difficultyOptions" class="w-full mb-5" />
+              <Select v-model="form.difficulty" :options="difficultyOptions" class="w-full mb-5" />
             </template>
           </Card>
         </div>

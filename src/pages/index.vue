@@ -2,7 +2,7 @@
   import { useQuery } from '@tanstack/vue-query';
   import Card from 'primevue/card';
   import Checkbox from 'primevue/checkbox';
-  import { onMounted, reactive, ref, watch } from 'vue';
+  import { reactive, ref, watch } from 'vue';
 
   import Pattern from '@/components/pattern/index.vue';
   import Player from '@/components/player/index.vue';
@@ -31,6 +31,7 @@
     queryFn: () => PlayModesService.pattern(form),
     enabled: false,
   });
+
   function loadFile() {
     refetch();
     toReload.value = false;
@@ -40,24 +41,19 @@
     player.value?.stop();
     toReload.value = true;
   });
-
-  const isMounted = ref(false);
-  onMounted(() => (isMounted.value = true));
 </script>
 
 <template>
   <div>
-    <Teleport v-if="isMounted" to=".player-container">
+    <div class="container sm:-mt-8 pb-8">
       <Player
-        class="text-center"
+        class="mb-4 text-center"
         ref="player"
         :file="data"
         :to-reload="toReload"
         :is-loading="isFetching"
         @loadFile="loadFile"
       />
-    </Teleport>
-    <div class="container sm:-mt-8 pb-8">
       <div class="grid w-full">
         <div class="col-12 md:col-6 lg:col-4">
           <Card class="w-full h-full">
@@ -74,7 +70,7 @@
             <template #content>
               <Tempo v-model="form.tempo" :min="limits.tempo.min" :max="limits.tempo.max" />
 
-              <div class="p-card-title mt-5" data-pc-section="title">Scales</div>
+              <div class="p-card-title mt-5 mb-3" data-pc-section="title">Scales</div>
               <AllScales v-model="form.scale_name" />
             </template>
           </Card>

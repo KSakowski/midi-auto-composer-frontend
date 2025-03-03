@@ -54,22 +54,32 @@
   onBeforeRouteLeave(() => stop());
 </script>
 <template>
-  <div v-if="!isLoading" class="text-white">
-    <Play v-if="!file || toReload" @click="loadFile" />
-    <template v-else>
-      <Play v-if="!isPlaying" @click="play" />
-      <Stop v-else @click="stop" />
-    </template>
-  </div>
-  <ProgressSpinner v-else strokeWidth="4" class="player-spinner flex m-auto" />
+  <transition name="fade" mode="out-in">
+    <div v-if="!isLoading" class="text-white">
+      <Play v-if="!file || toReload" @click="loadFile" />
+      <template v-else>
+        <Play v-if="!isPlaying" @click="play" />
+        <Stop v-else @click="stop" />
+      </template>
+    </div>
+    <ProgressSpinner
+      v-else
+      class="player-spinner flex m-auto"
+      style="width: 34px; height: 34px"
+      strokeWidth="8"
+      fill="transparent"
+      animationDuration=".5s"
+      aria-label="Custom ProgressSpinner"
+    />
+  </transition>
 </template>
 
 <style lang="scss">
-.player-spinner {
-  width: 36px;
-  height: 36px;
-  .p-progress-spinner-svg .p-progress-spinner-circle {
-    stroke: #fff !important;
+  .player-spinner {
+    width: 36px;
+    height: 36px;
+    .p-progressspinner-spin .p-progressspinner-circle {
+      stroke: #fff !important;
+    }
   }
-}
 </style>

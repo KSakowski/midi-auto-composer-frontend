@@ -5,13 +5,13 @@
   import { Tonations, TonationSettings } from './tonations';
 
   const props = withDefaults(
-      defineProps<{
-        modelValue: string;
-        showRandom?: boolean;
-      }>(),
-      {
-        showRandom: true
-      },
+    defineProps<{
+      modelValue: string;
+      showRandom?: boolean;
+    }>(),
+    {
+      showRandom: true,
+    },
   );
   const emit = defineEmits(['update:modelValue']);
 

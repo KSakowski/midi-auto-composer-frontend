@@ -6,7 +6,7 @@
 
   const route = useRoute();
   const router = useRouter();
-  const firstRoute = navigationItems[0];
+  const [firstRoute] = navigationItems;
   const lastRoute = navigationItems[navigationItems.length - 1];
   const currentRoute = computed(() => navigationItems.find(item => item.route === route.path) || firstRoute);
 
@@ -16,8 +16,7 @@
         ? navigationItems.find(item => item.index === currentRoute.value.index - 1)
         : lastRoute;
 
-    if (previousRoute)
-      router.push(previousRoute?.route);
+    if (previousRoute) router.push(previousRoute?.route);
   }
 
   function forward() {
@@ -26,8 +25,7 @@
         ? navigationItems.find(item => item.index === currentRoute.value.index + 1)
         : firstRoute;
 
-    if (nextRoute)
-      router.push(nextRoute.route);
+    if (nextRoute) router.push(nextRoute.route);
   }
 </script>
 
@@ -35,10 +33,11 @@
   <div class="at-header">
     <div class="container relative py-2">
       <h1 class="text-white text-center">{{ currentRoute.label }}</h1>
-      <p class="text-white text-center mx-auto">
-        {{ currentRoute.description }}
-      </p>
-      <div class="player-container"></div>
+      <div class="md:flex align-items-center justify-content-center md:h-6rem">
+        <p class="text-white text-center mx-auto">
+          {{ currentRoute.description }}
+        </p>
+      </div>
       <div class="arrows">
         <button class="arrow back" @click="back">
           <span class="material-symbols-outlined">arrow_back_ios_new</span>
@@ -54,7 +53,7 @@
 <style lang="scss" scoped>
   .at-header {
     background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    min-height: 300px;
+    min-height: 260px;
 
     .container {
       max-width: 600px;
@@ -65,7 +64,7 @@
       width: 60px;
       height: 50px;
       position: absolute;
-      top: 90px;
+      top: 100px;
       background: transparent;
       border: 0;
       box-shadow: none;

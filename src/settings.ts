@@ -46,8 +46,8 @@ export const Settings = {
         defaultValue: 4,
       },
       components: {
-        maxLength: 16
-      }
+        maxLength: 16,
+      },
     },
   },
 };

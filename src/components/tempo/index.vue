@@ -28,9 +28,9 @@
 </template>
 
 <style lang="scss">
-.tempo {
-  .p-inputtext {
-    text-align: center;
+  .tempo {
+    .p-inputtext {
+      text-align: center;
+    }
   }
-}
 </style>

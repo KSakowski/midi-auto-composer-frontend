@@ -52,10 +52,13 @@
         v-for="(item, index) in pattern"
         :key="item"
         size="small"
-        class="py-0 px-2 mx-1 my-1 text-xs relative overflow-visible"
+        class="py-0 px-2 mx-1 my-1 relative overflow-visible"
       >
         {{ item }}
-        <span class="remove-btn flex align-items-center justify-content-center bg-red-300" @click="deletePattern(index)">
+        <span
+          class="remove-btn flex align-items-center justify-content-center bg-red-300"
+          @click="deletePattern(index)"
+        >
           x
         </span>
       </Button>

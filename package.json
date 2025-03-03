@@ -12,14 +12,15 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@primeuix/themes": "^1.0.0",
     "@tanstack/vue-query": "^4.37.1",
     "@vueuse/core": "^10.6.0",
     "@vueuse/integrations": "^10.6.0",
     "@vueuse/sound": "^2.0.1",
     "axios": "^1.6.0",
     "pinia": "^2.1.7",
-    "primeflex": "^3.3.1",
-    "primevue": "^3.38.1",
+    "primeflex": "^4.0.0",
+    "primevue": "4.3.1",
     "sortablejs": "^1.15.0",
     "vite-svg-loader": "^5.1.0",
     "vue": "^3.3.4",
