@@ -7,13 +7,6 @@ export default class PlayModesService {
       await apiClient.post<ArrayBuffer>(
         'pattern',
         { ...form },
-        {
-          headers: {
-            accept: 'application/json',
-            'Content-Type': 'application/json',
-          },
-          responseType: 'arraybuffer',
-        },
       )
     ).data;
   }
@@ -23,13 +16,6 @@ export default class PlayModesService {
       await apiClient.post<ArrayBuffer>(
         'scales_one_chord',
         { ...form },
-        {
-          headers: {
-            accept: 'application/json',
-            'Content-Type': 'application/json',
-          },
-          responseType: 'arraybuffer',
-        },
       )
     ).data;
   }
@@ -39,13 +25,6 @@ export default class PlayModesService {
       await apiClient.post<ArrayBuffer>(
         'intervals',
         { ...form },
-        {
-          headers: {
-            accept: 'application/json',
-            'Content-Type': 'application/json',
-          },
-          responseType: 'arraybuffer',
-        },
       )
     ).data;
   }
@@ -55,13 +34,6 @@ export default class PlayModesService {
       await apiClient.post<ArrayBuffer>(
         'custom_creator',
         { ...form },
-        {
-          headers: {
-            accept: 'application/json',
-            'Content-Type': 'application/json',
-          },
-          responseType: 'arraybuffer',
-        },
       )
     ).data;
   }
@@ -71,13 +43,6 @@ export default class PlayModesService {
       await apiClient.post<ArrayBuffer>(
         'melody',
         { ...form },
-        {
-          headers: {
-            accept: 'application/json',
-            'Content-Type': 'application/json',
-          },
-          responseType: 'arraybuffer',
-        },
       )
     ).data;
   }
