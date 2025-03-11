@@ -7,7 +7,7 @@
 
   import Chord from '@/components/chord/index.vue';
   import Player from '@/components/player/index.vue';
-  import Scales from '@/components/scales/scales/index.vue';
+  import TreeScales from '@/components/scales/treeScales/index.vue';
   import Tempo from '@/components/tempo/index.vue';
   import Tonation from '@/components/tonation/index.vue';
   import PlayModesService from '@/services/playModes';
@@ -74,7 +74,10 @@
           <Card class="w-full h-full">
             <template #title>Scales</template>
             <template #content>
-              <Scales v-model="form.scales_names" />
+              <TreeScales
+                :values="form.scales_names"
+                @update:model-value="(values: string[]) => (form.scales_names = values)"
+              />
 
               <div class="p-card-title mt-5 mb-3" data-pc-section="title">Chord name</div>
               <Chord v-model="form.chord_name" />

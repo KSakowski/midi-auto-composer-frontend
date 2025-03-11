@@ -6,7 +6,7 @@
 
   import Pattern from '@/components/pattern/index.vue';
   import Player from '@/components/player/index.vue';
-  import AllScales from '@/components/scales/allScales/index.vue';
+  import TreeScales from '@/components/scales/treeScales/index.vue';
   import Tempo from '@/components/tempo/index.vue';
   import Tonation from '@/components/tonation/index.vue';
   import PlayModesService from '@/services/playModes';
@@ -71,7 +71,11 @@
               <Tempo v-model="form.tempo" :min="limits.tempo.min" :max="limits.tempo.max" />
 
               <div class="p-card-title mt-5 mb-3" data-pc-section="title">Scales</div>
-              <AllScales v-model="form.scale_name" />
+              <TreeScales
+                :values="[form.scale_name]"
+                :selection-mode="'single'"
+                @update:model-value="(value: string) => (form.scale_name = value)"
+              />
             </template>
           </Card>
         </div>

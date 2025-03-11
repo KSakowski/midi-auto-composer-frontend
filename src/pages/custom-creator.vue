@@ -8,7 +8,7 @@
 
   import Chord from '@/components/chord/index.vue';
   import Player from '@/components/player/index.vue';
-  import AllScales from '@/components/scales/allScales/index.vue';
+  import TreeScales from '@/components/scales/treeScales/index.vue';
   import Tempo from '@/components/tempo/index.vue';
   import Tonation from '@/components/tonation/index.vue';
   import PlayModesService from '@/services/playModes';
@@ -156,7 +156,12 @@
         :max="limits.quarternotes.max"
       />
       <h3 class="mb-0">Scale</h3>
-      <AllScales class="mb-1" v-model="componentForm.component.scale_name" />
+      <TreeScales
+        :values="[componentForm.component.scale_name]"
+        :selection-mode="'single'"
+        @update:model-value="(value: string) => (componentForm.component.scale_name = value)"
+      />
+
       <h3 class="mb-0">Chord</h3>
       <Chord class="mb-1" v-model="componentForm.component.chord_name" />
 

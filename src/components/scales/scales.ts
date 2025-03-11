@@ -1,72 +1,3 @@
-// export const Scales = [
-//   {
-//     subscales: ['ionian', 'dorian', 'phrygian', 'lydian', 'mixolydian', 'aeolian', 'locrian'],
-//     value: 'ionian',
-//   },
-//   {
-//     subscales: [
-//       'harmonic_minor',
-//       'locrian_13',
-//       'ionian_#5',
-//       'dorian_#11',
-//       'phrygian_dominant',
-//       'lydian_#9',
-//       'harmonic_dimished',
-//     ],
-//     value: 'harmonic_minor',
-//   },
-//   {
-//     subscales: [
-//       'melodic_minor',
-//       'dorian_b9',
-//       'lydian_augmented',
-//       'lydian_dominant',
-//       'mixolydian_b13',
-//       'locrian_9',
-//       'superlocrian',
-//     ],
-//     value: 'melodic_minor',
-//   },
-//   {
-//     subscales: [
-//       'harmonic_major',
-//       'dorian_b5',
-//       'phrygian_b11',
-//       'lydian_b3',
-//       'mixolydian_b9',
-//       'lydian_augmented_#9',
-//       'locrian_bb7',
-//     ],
-//     value: 'harmonic_major',
-//   },
-//   {
-//     subscales: [
-//       'double_harmonic_major',
-//       'lydian_#2_#6',
-//       'ultraphrygian',
-//       'double_harmonic_minor',
-//       'oriental',
-//       'ionian_augmented_#2',
-//       'locrian_bb3_bb7',
-//     ],
-//     value: 'double_harmonic_major',
-//   },
-//   {
-//     subscales: [
-//       'pentatonic_major',
-//       'pentatonic_suspended',
-//       'pentatonic_blues_minor',
-//       'pentatonic_blues_major',
-//       'pentatonic_minor',
-//     ],
-//     value: 'pentatonic_major',
-//   },
-//   {
-//     subscales: ['wholetone', 'augmented', 'blues_minor', 'blues_major'],
-//     value: 'six tone',
-//   },
-// ];
-
 export const Scales = [
   {
     steps: [0, 2, 4, 5, 7, 9, 11],
@@ -411,3 +342,154 @@ export const Scales = [
     value: 'pentatonic_dominant',
   },
 ];
+
+export const TreeScales = [
+  {
+    key: '0',
+    label: 'Ionian',
+    data: 'Ionian Scale',
+    icon: 'pi pi-fw pi-music',
+    selectable: false,
+    children: [
+      { key: 'ionian', label: 'Ionian', data: 'Ionian', icon: 'pi pi-fw pi-music' },
+      { key: 'dorian', label: 'Dorian', data: 'Dorian', icon: 'pi pi-fw pi-music' },
+      { key: 'phrygian', label: 'Phrygian', data: 'Phrygian', icon: 'pi pi-fw pi-music' },
+      { key: 'lydian', label: 'Lydian', data: 'Lydian', icon: 'pi pi-fw pi-music' },
+      { key: 'mixolydian', label: 'Mixolydian', data: 'Mixolydian', icon: 'pi pi-fw pi-music' },
+      { key: 'aeolian', label: 'Aeolian', data: 'Aeolian', icon: 'pi pi-fw pi-music' },
+      { key: 'locrian', label: 'Locrian', data: 'Locrian', icon: 'pi pi-fw pi-music' },
+    ],
+  },
+  {
+    key: '1',
+    label: 'Harmonic Minor',
+    data: 'Harmonic Minor Scale',
+    icon: 'pi pi-fw pi-music',
+    selectable: false,
+    children: [
+      { key: 'harmonic_minor', label: 'Harmonic Minor', data: 'Harmonic Minor', icon: 'pi pi-fw pi-music' },
+      { key: 'locrian_13', label: 'Locrian 13', data: 'Locrian 13', icon: 'pi pi-fw pi-music' },
+      { key: 'ionian_#5', label: 'Ionian #5', data: 'Ionian #5', icon: 'pi pi-fw pi-music' },
+      { key: 'dorian_#11', label: 'Dorian #11', data: 'Dorian #11', icon: 'pi pi-fw pi-music' },
+      { key: 'phrygian_dominant', label: 'Phrygian Dominant', data: 'Phrygian Dominant', icon: 'pi pi-fw pi-music' },
+      { key: 'lydian_#9', label: 'Lydian #9', data: 'Lydian #9', icon: 'pi pi-fw pi-music' },
+      {
+        key: 'harmonic_dimished',
+        label: 'Harmonic Diminished',
+        data: 'Harmonic Diminished',
+        icon: 'pi pi-fw pi-music',
+      },
+    ],
+  },
+  {
+    key: '2',
+    label: 'Melodic Minor',
+    data: 'Melodic Minor Scale',
+    icon: 'pi pi-fw pi-music',
+    selectable: false,
+    children: [
+      { key: 'melodic_minor', label: 'Melodic Minor', data: 'Melodic Minor', icon: 'pi pi-fw pi-music' },
+      { key: 'dorian_b9', label: 'Dorian b9', data: 'Dorian b9', icon: 'pi pi-fw pi-music' },
+      { key: 'lydian_augmented', label: 'Lydian Augmented', data: 'Lydian Augmented', icon: 'pi pi-fw pi-music' },
+      { key: 'lydian_dominant', label: 'Lydian Dominant', data: 'Lydian Dominant', icon: 'pi pi-fw pi-music' },
+      { key: 'mixolydian_b13', label: 'Mixolydian b13', data: 'Mixolydian b13', icon: 'pi pi-fw pi-music' },
+      { key: 'locrian_9', label: 'Locrian 9', data: 'Locrian 9', icon: 'pi pi-fw pi-music' },
+      { key: 'superlocrian', label: 'Superlocrian', data: 'Superlocrian', icon: 'pi pi-fw pi-music' },
+    ],
+  },
+  {
+    key: '3',
+    label: 'Harmonic Major',
+    data: 'Harmonic Major Scale',
+    icon: 'pi pi-fw pi-music',
+    selectable: false,
+    children: [
+      { key: 'harmonic_major', label: 'Harmonic Major', data: 'Harmonic Major', icon: 'pi pi-fw pi-music' },
+      { key: 'dorian_b5', label: 'Dorian b5', data: 'Dorian b5', icon: 'pi pi-fw pi-music' },
+      { key: 'phrygian_b11', label: 'Phrygian b11', data: 'Phrygian b11', icon: 'pi pi-fw pi-music' },
+      { key: 'lydian_b3', label: 'Lydian b3', data: 'Lydian b3', icon: 'pi pi-fw pi-music' },
+      { key: 'mixolydian_b9', label: 'Mixolydian b9', data: 'Mixolydian b9', icon: 'pi pi-fw pi-music' },
+      {
+        key: 'lydian_augmented_#9',
+        label: 'Lydian Augmented #9',
+        data: 'Lydian Augmented #9',
+        icon: 'pi pi-fw pi-music',
+      },
+      { key: 'locrian_bb7', label: 'Locrian bb7', data: 'Locrian bb7', icon: 'pi pi-fw pi-music' },
+    ],
+  },
+  {
+    key: '4',
+    label: 'Double Harmonic Major',
+    data: 'Double Harmonic Major Scale',
+    icon: 'pi pi-fw pi-music',
+    selectable: false,
+    children: [
+      {
+        key: 'double_harmonic_major',
+        label: 'Double Harmonic Major',
+        data: 'Double Harmonic Major',
+        icon: 'pi pi-fw pi-music',
+      },
+      { key: 'lydian_#2_#6', label: 'Lydian #2 #6', data: 'Lydian #2 #6', icon: 'pi pi-fw pi-music' },
+      { key: 'ultraphrygian', label: 'Ultraphrygian', data: 'Ultraphrygian', icon: 'pi pi-fw pi-music' },
+      {
+        key: 'double_harmonic_minor',
+        label: 'Double Harmonic Minor',
+        data: 'Double Harmonic Minor',
+        icon: 'pi pi-fw pi-music',
+      },
+      { key: 'oriental', label: 'Oriental', data: 'Oriental', icon: 'pi pi-fw pi-music' },
+      {
+        key: 'ionian_augmented_#2',
+        label: 'Ionian Augmented #2',
+        data: 'Ionian Augmented #2',
+        icon: 'pi pi-fw pi-music',
+      },
+      { key: 'locrian_bb3_bb7', label: 'Locrian bb3 bb7', data: 'Locrian bb3 bb7', icon: 'pi pi-fw pi-music' },
+    ],
+  },
+  {
+    key: '5',
+    label: 'Pentatonic Major',
+    data: 'Pentatonic Major Scale',
+    icon: 'pi pi-fw pi-music',
+    selectable: false,
+    children: [
+      { key: 'pentatonic_major', label: 'Pentatonic Major', data: 'Pentatonic Major', icon: 'pi pi-fw pi-music' },
+      {
+        key: 'pentatonic_suspended',
+        label: 'Pentatonic Suspended',
+        data: 'Pentatonic Suspended',
+        icon: 'pi pi-fw pi-music',
+      },
+      {
+        key: 'pentatonic_blues_minor',
+        label: 'Pentatonic Blues Minor',
+        data: 'Pentatonic Blues Minor',
+        icon: 'pi pi-fw pi-music',
+      },
+      {
+        key: 'pentatonic_blues_major',
+        label: 'Pentatonic Blues Major',
+        data: 'Pentatonic Blues Major',
+        icon: 'pi pi-fw pi-music',
+      },
+      { key: 'pentatonic_minor', label: 'Pentatonic Minor', data: 'Pentatonic Minor', icon: 'pi pi-fw pi-music' },
+    ],
+  },
+  {
+    key: '6',
+    label: 'Six Tone',
+    data: 'Six Tone Scale',
+    icon: 'pi pi-fw pi-music',
+    selectable: false,
+    children: [
+      { key: 'wholetone', label: 'Whole Tone', data: 'Whole Tone', icon: 'pi pi-fw pi-music' },
+      { key: 'augmented', label: 'Augmented', data: 'Augmented', icon: 'pi pi-fw pi-music' },
+      { key: 'blues_minor', label: 'Blues Minor', data: 'Blues Minor', icon: 'pi pi-fw pi-music' },
+      { key: 'blues_major', label: 'Blues Major', data: 'Blues Major', icon: 'pi pi-fw pi-music' },
+    ],
+  },
+];
+
