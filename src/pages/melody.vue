@@ -3,6 +3,7 @@
   import Card from 'primevue/card';
   import { reactive, ref, watch } from 'vue';
 
+  import Melody from '@/components/melody/index.vue';
   import Player from '@/components/player/index.vue';
   import Tempo from '@/components/tempo/index.vue';
   import Tonation from '@/components/tonation/index.vue';
@@ -22,6 +23,11 @@
     queryKey: ['melody'],
     queryFn: () => PlayModesService.melody(form),
     enabled: false,
+  });
+
+  const { data: melodies } = useQuery({
+    queryKey: ['melodies'],
+    queryFn: () => PlayModesService.melodies(),
   });
 
   function loadFile() {
@@ -61,6 +67,9 @@
             <template #title>Tempo</template>
             <template #content>
               <Tempo v-model="form.tempo" :min="20" :max="80" />
+
+              <div class="p-card-title mt-5 mb-3" data-pc-section="title">Melody</div>
+              <Melody v-model="form.melody_id" :melodies="melodies || []" />
             </template>
           </Card>
         </div>

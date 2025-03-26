@@ -29,6 +29,8 @@
   });
 
   function play() {
+    currentSound.value = new Audio(file.value);
+
     currentSound.value?.load();
     currentSound.value?.play();
     isPlaying.value = true;

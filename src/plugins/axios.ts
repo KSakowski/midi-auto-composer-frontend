@@ -6,5 +6,11 @@ export const apiClient = axios.create({
     accept: 'application/json',
     'Content-Type': 'application/json',
   },
-  responseType: 'arraybuffer',
+});
+
+apiClient.interceptors.request.use((config) => {
+  if (config.method?.toUpperCase() === 'POST') {
+    config.responseType = 'arraybuffer';
+  }
+  return config;
 });
