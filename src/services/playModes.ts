@@ -23,6 +23,6 @@ export default class PlayModesService {
   }
 
   static async melodies(): Promise<Record<string, string>[]> {
-    return (await apiClient.get('melodies_id_name/')).data;
+    return (await apiClient.get('all_melodies_struct/')).data;
   }
 }

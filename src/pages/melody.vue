@@ -15,7 +15,7 @@
   const form = reactive<MelodyMode>({
     tempo: 60,
     tonation: 'c',
-    melody_id: '0',
+    melody_id: 0,
     notes_range: [40, 81],
   });
 
@@ -43,7 +43,7 @@
 
 <template>
   <div>
-    <div class="container sm:-mt-8 pb-8">
+    <div class="container -mt-8 pb-8">
       <Player
         class="mb-4 text-center"
         ref="player"

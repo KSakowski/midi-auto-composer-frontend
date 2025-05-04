@@ -45,7 +45,7 @@
 
 <template>
   <div>
-    <div class="container sm:-mt-8 pb-8">
+    <div class="container -mt-8 pb-8">
       <Player
         class="mb-4 text-center"
         ref="player"

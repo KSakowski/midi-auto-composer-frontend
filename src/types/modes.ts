@@ -46,6 +46,6 @@ export interface CustomCreator extends CustomCreatorParams {
 export interface MelodyMode {
   tempo: number;
   tonation: string;
-  melody_id: string;
+  melody_id: number;
   notes_range: number[];
 }
