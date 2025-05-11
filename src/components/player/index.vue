@@ -4,6 +4,7 @@
   import { computed, ref, watch } from 'vue';
   import { onBeforeRouteLeave } from 'vue-router';
 
+  import Loop from '@/components/player/loop.vue';
   import Play from '@/components/player/play.vue';
   import Stop from '@/components/player/stop.vue';
 
@@ -19,8 +20,9 @@
     stop,
   });
 
-  const currentSound = ref();
+  const currentSound = ref<HTMLAudioElement | null>(null);
   const isPlaying = ref(false);
+  const loopEnabled = ref(false);
 
   const file = computed(() => {
     if (!props.file) return;
@@ -30,9 +32,9 @@
 
   function play() {
     currentSound.value = new Audio(file.value);
-
-    currentSound.value?.load();
-    currentSound.value?.play();
+    currentSound.value.loop = loopEnabled.value;
+    currentSound.value.load();
+    currentSound.value.play();
     isPlaying.value = true;
   }
 
@@ -49,12 +51,14 @@
 
   watch(file, () => {
     currentSound.value = new Audio(file.value);
+    currentSound.value.loop = loopEnabled.value;
     play();
     useEventListener(currentSound.value, 'ended', () => (isPlaying.value = false));
   });
 
   onBeforeRouteLeave(() => stop());
 </script>
+
 <template>
   <transition name="fade" mode="out-in">
     <div v-if="!isLoading" class="text-white">
@@ -63,6 +67,7 @@
         <Play v-if="!isPlaying" @click="play" />
         <Stop v-else @click="stop" />
       </template>
+      <Loop :active="loopEnabled" @click="loopEnabled = !loopEnabled" />
     </div>
     <ProgressSpinner
       v-else
