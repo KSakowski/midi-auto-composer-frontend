@@ -66,7 +66,7 @@
           <Card class="w-full h-full">
             <template #title>Tempo</template>
             <template #content>
-              <Tempo v-model="form.tempo" :min="20" :max="80" />
+              <Tempo v-model="form.tempo" :min="20" :max="160" />
 
               <div class="p-card-title mt-5 mb-3" data-pc-section="title">Melody</div>
               <Melody v-model="form.melody_id" :melodies="melodies || []" />
